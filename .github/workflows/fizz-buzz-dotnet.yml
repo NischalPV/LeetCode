@@ -20,11 +20,12 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-    - name: Change directory
-      run: cd fizz-buzz
     - name: Restore dependencies
+      working-directory: ./fizz-buzz
       run: dotnet restore
     - name: Build
+      working-directory: ./fizz-buzz
       run: dotnet build --no-restore
     - name: Test
+      working-directory: ./fizz-buzz
       run: dotnet test --no-build --verbosity normal
